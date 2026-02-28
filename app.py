@@ -9,9 +9,14 @@ st.title("AI-Based Wellness Scoring System")
 
 st.write("Enter your health and lifestyle details:")
 
-gender = st.selectbox("Gender", [0, 1])  # 0=Male, 1=Female
-smoking = st.selectbox("Smoking Habit", [0, 1])
-alcohol = st.selectbox("Alcohol Consumption", [0, 1])
+gender_label = st.selectbox("Gender", ["Male", "Female"])
+smoking_label = st.selectbox("Smoking Habit", ["No", "Yes"])
+alcohol_label = st.selectbox("Alcohol Consumption", ["No", "Yes"])
+
+# Convert UI input to model input
+gender = 0 if gender_label == "Male" else 1
+smoking = 1 if smoking_label == "Yes" else 0
+alcohol = 1 if alcohol_label == "Yes" else 0
 physical = st.slider("Physical Activity Level (1=Low, 3=High)", 1, 3)
 fastfood = st.slider("Fast Food Consumption (0=Rare, 3=Daily)", 0, 3)
 mental = st.slider("Mental Health Frequency (0=Good, 2=Anxiety)", 0, 2)
